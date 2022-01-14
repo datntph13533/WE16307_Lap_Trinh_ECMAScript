@@ -3,7 +3,6 @@ import Nav from "./nav";
 const Header = {
     render() {
         return /* html */ `
-        <div class="max-w-5xl mx-auto">
             <header>
                 <div class="bg-blue-900 h-[100px] py-[25px]">
                     <img src="https://picsum.photos/240/50" alt="" class="mx-auto" />
