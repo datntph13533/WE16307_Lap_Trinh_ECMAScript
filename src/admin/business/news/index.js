@@ -1,7 +1,7 @@
 import data from "../../../data";
 import NavAdmin from "../../views/nav";
 
-const ListNeww = {
+const AdminListNew = {
     render() {
         return /* html */ `
         <div class="min-h-full">
@@ -85,4 +85,4 @@ const ListNeww = {
         `;
     },
 };
-export default ListNeww;
+export default AdminListNew;
