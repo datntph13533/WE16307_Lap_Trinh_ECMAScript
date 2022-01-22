@@ -32,3 +32,61 @@ router.on({
     },
 });
 router.resolve();
+
+// const a = 10;
+// const b = 20;
+
+// function sum(a,b, callback){
+//     callback(a + b);
+// }
+// sum(a,b, function(result){
+//     document.getElementById('app').innerHTML = result;
+// });
+
+// function loadScript(src, callback){
+//     const script = document.createElement('script');
+//     script.src = src;
+//     script.onload = () => {
+//         callback(null, script)
+//     }
+//     script.onerror = () => {
+//         callback(new Error("Lỗi kết nối"));
+//     }
+//     document.head.append(script);
+// }
+// loadScript('https://dev.to/lydiahallie/javascript-visualized-event-loop-3dif', function(error, script){
+//     if(error){
+//         console.log(error);
+//     } else {
+//         console.log(script);
+//     }
+// });
+
+// Promise
+function loadScript(src) {
+    return new Promise((resolve, reject) => {
+        const script = document.createElement("script");
+        script.src = src;
+        script.onload = () => {
+            resolve(script);
+        };
+        script.onerror = () => {
+            reject(new Error("Lỗi kết nối"));
+        };
+        document.head.append(script);
+    });
+}
+// loadScript('https://dev.to/lydiahallie/javascript-visualized-event-loop-3dif')
+//     .then(script => console.log(script))
+//     .catch(error => console.log(error))
+
+// async/await
+async function asyncFunction() {
+    try {
+        const result = await loadScript("https://dev.to/lydiahallie/javascript-visualized-event-loop-3dif");
+        console.log(result);
+    } catch (error) {
+        console.log(error);
+    }
+}
+asyncFunction();
