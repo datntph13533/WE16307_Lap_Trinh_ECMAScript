@@ -63,30 +63,30 @@ router.resolve();
 // });
 
 // Promise
-function loadScript(src) {
-    return new Promise((resolve, reject) => {
-        const script = document.createElement("script");
-        script.src = src;
-        script.onload = () => {
-            resolve(script);
-        };
-        script.onerror = () => {
-            reject(new Error("Lỗi kết nối"));
-        };
-        document.head.append(script);
-    });
-}
+// function loadScript(src) {
+//     return new Promise((resolve, reject) => {
+//         const script = document.createElement("script");
+//         script.src = src;
+//         script.onload = () => {
+//             resolve(script);
+//         };
+//         script.onerror = () => {
+//             reject(new Error("Lỗi kết nối"));
+//         };
+//         document.head.append(script);
+//     });
+// }
 // loadScript('https://dev.to/lydiahallie/javascript-visualized-event-loop-3dif')
 //     .then(script => console.log(script))
 //     .catch(error => console.log(error))
 
 // async/await
-async function asyncFunction() {
-    try {
-        const result = await loadScript("https://dev.to/lydiahallie/javascript-visualized-event-loop-3dif");
-        console.log(result);
-    } catch (error) {
-        console.log(error);
-    }
-}
-asyncFunction();
+// async function asyncFunction() {
+//     try {
+//         const result = await loadScript("https://dev.to/lydiahallie/javascript-visualized-event-loop-3dif");
+//         console.log(result);
+//     } catch (error) {
+//         console.log(error);
+//     }
+// }
+// asyncFunction();
