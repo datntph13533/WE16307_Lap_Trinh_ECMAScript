@@ -7,12 +7,15 @@ import ProductPage from "./pages/product";
 import AboutPage from "./pages/about";
 import Footer from "./components/footer";
 import DetailNewsPage from "./pages/DetailNewsPage";
+import AdminPosts from "./pages/posts";
+import AdminAddPosts from "./pages/posts/add";
 
 const router = new Navigo("/", { linksSelector: "a" });
 
 const print = async (content) => {
     document.getElementById("header").innerHTML = Header.render();
     document.getElementById("app").innerHTML = await content.render();
+    if (content.afterRender) await content.afterRender();
     document.getElementById("footer").innerHTML = Footer.render();
 };
 
@@ -30,6 +33,8 @@ router.on({
         const { id } = data;
         print(DetailNewsPage.render(id));
     },
+    "/admin/posts": () => print(AdminPosts),
+    "/admin/posts/add": () => print(AdminAddPosts),
 });
 router.resolve();
 
