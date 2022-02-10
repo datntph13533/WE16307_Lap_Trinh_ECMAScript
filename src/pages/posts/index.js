@@ -27,10 +27,11 @@ const AdminPosts = {
                                 <td>
                                     <h3 class="my-3"><a href="" class="font-semibold text-lg text-orange-500 ">${post.title}</a></h3>
                                 </td>
-                                // <td><a href="/admin/posts/${post.id}/edit">Edit</a></td>
+                                <td><a href="/admin/posts/${post.id}/edit">Edit</a></td>
                                 <td>
                                     <button data-id="${post.id}" class="btn bg-red-500 text-white inline-block py-3 px-5 rounded">Delete</button>
                                 </td>
+                                <td><a href="/admin/posts/add">Add</a></td>
                             </tr>
                         `).join("")}
                     </tbody>

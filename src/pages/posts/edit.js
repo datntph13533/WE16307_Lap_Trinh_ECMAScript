@@ -10,7 +10,7 @@ const AdminEditPosts = {
                 ${Banner.render()}
                 </div>
                 <div class="news">
-                    <form id="formAddPost">
+                    <form id="formEditPost">
                         <input type="text" class="border border-black" id="title-post" placeholder="Title Post" value="${data.title}"/><br />
                         <img src="${data.img}"/>
                         <input type="file" class="border border-black" id="img-post" /> <br />
@@ -22,7 +22,7 @@ const AdminEditPosts = {
         `;
     },
     afterRender() {
-        const formAddPost = document.querySelector("#formAddPost");
+        const formAddPost = document.querySelector("#formEditPost");
         const CLOUDINARY_PRESET = "js8yqruv";
         const CLOUDINARY_API_URL = "https://api.cloudinary.com/v1_1/dvj4wwihv/image/upload";
         formAddPost.addEventListener("submit", async (e) => {
@@ -47,6 +47,7 @@ const AdminEditPosts = {
                 img: data.url,
                 desc: document.querySelector("#desc-post").value,
             });
+            document.location.href = "/admin/posts";
         });
     },
 };
