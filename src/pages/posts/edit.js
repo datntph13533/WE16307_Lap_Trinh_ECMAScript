@@ -1,9 +1,10 @@
 import axios from "axios";
+import { edit, get } from "../../api/posts";
 import Banner from "../../components/banner";
 
 const AdminEditPosts = {
-    async render() {
-        const { data } = await axios.get("https://5e79b4b817314d00161333da.mockapi.io/posts/15");
+    async render(id) {
+        const { data } = await get(id);
         return `
             <div class="max-w-5xl mx-auto">
                 <div class="banner">
@@ -21,7 +22,7 @@ const AdminEditPosts = {
             </div>
         `;
     },
-    afterRender() {
+    afterRender(id) {
         const formAddPost = document.querySelector("#formEditPost");
         const CLOUDINARY_PRESET = "js8yqruv";
         const CLOUDINARY_API_URL = "https://api.cloudinary.com/v1_1/dvj4wwihv/image/upload";
@@ -42,12 +43,12 @@ const AdminEditPosts = {
                 },
             });
             // call API thêm bài viết
-            axios.post("https://5e79b4b817314d00161333da.mockapi.io/posts", {
+            edit({
+                id,
                 title: document.querySelector("#title-post").value,
                 img: data.url,
                 desc: document.querySelector("#desc-post").value,
             });
-            document.location.href = "/admin/posts";
         });
     },
 };

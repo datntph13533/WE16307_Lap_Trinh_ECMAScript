@@ -1,4 +1,5 @@
 import axios from "axios";
+import { add } from "../../api/posts";
 import Banner from "../../components/banner";
 
 const AdminAddPosts = {
@@ -40,7 +41,7 @@ const AdminAddPosts = {
                 },
             });
             // call API thêm bài viết
-            axios.post("https://5e79b4b817314d00161333da.mockapi.io/posts", {
+            add({
                 title: document.querySelector("#title-post").value,
                 img: data.url,
                 desc: document.querySelector("#desc-post").value,
