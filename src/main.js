@@ -1,6 +1,5 @@
 import Navigo from "navigo";
 import HomePage from "./pages/home";
-import ProductPage from "./pages/product";
 import AboutPage from "./pages/about";
 import DetailNewsPage from "./pages/DetailNewsPage";
 import AdminPosts from "./pages/posts";
@@ -8,6 +7,8 @@ import AdminAddPosts from "./pages/posts/add";
 import AdminEditPosts from "./pages/posts/edit";
 import Signin from "./pages/signin";
 import Signup from "./pages/signup";
+import ProductDetailPage from "./pages/products/detail";
+import ProductPage from "./pages/products";
 
 const router = new Navigo("/", { linksSelector: "a" });
 
@@ -36,9 +37,8 @@ router.on({
     "/about": () => {
         print(AboutPage);
     },
-    "/product": () => {
-        print(ProductPage);
-    },
+    "/products": () => print(ProductPage),
+    "/products/:id": ({ data }) => print(ProductDetailPage, data.id),
     "/signin": () => {
         print(Signin);
     },
